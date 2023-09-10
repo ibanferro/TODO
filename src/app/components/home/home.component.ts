@@ -32,6 +32,9 @@ export class HomeComponent implements OnInit {
     this.todoService.removeTodoFromList($event);
   }
 
-
+  changeTodoItemCompleteness( $event: Todo )
+  {
+    this.todoService.changeTodoItemCompleteness($event);
+  }
 
 }

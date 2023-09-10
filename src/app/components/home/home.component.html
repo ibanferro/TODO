@@ -3,6 +3,13 @@
 </header>
 <main class="w-full h-5/6 flex flex-col justify-center items-center">
   <div class="w-1/3 h-3/5 flex flex-col justify-start items-center overflow-y-auto">
-    <div class="w-full bg-pink-300 border-2 border-pink-400 " *ngFor="let todoItem of todoListBS | async"> {{todoItem.task}} </div>
+    <div class="w-full flex flex-row justify-start items-center bg-pink-300 border-2 border-pink-400 " *ngFor="let todoItem of todoListBS | async">
+      <div class="w-4/5 h-full text-center ">{{todoItem.task}}</div>
+      <div class="w-1/5 h-full flex flex-row justify-center items-center gap-2">
+        <button title="checkbox" [ngClass]="{ 'bg-green-400 border-2 border-green-500' : todoItem.completed , 'bg-transparent border-2 border-black' : !todoItem.completed }" class="w-1/2 h-full  " (click)="changeTodoItemCompleteness(todoItem)"><i *ngIf="todoItem.completed === true" class="fa fa-check text-white"></i></button>
+        <button title="close" class="w-1/2 h-full bg-red-400 border-2 border-red-500" (click)="removeTodoFromList(todoItem)"><i class="fa fa-trash text-white"></i></button>
+      </div>
+
+    </div>
   </div>
 </main>
