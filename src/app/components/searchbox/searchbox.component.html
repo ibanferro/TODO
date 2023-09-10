@@ -1,0 +1,4 @@
+<form [formGroup]="formGroup" class="w-full h-1/3 flex flex-row justify-center items-center gap-4" (ngSubmit)="onFormularySubmit()" >
+  <input type="text" formControlName="text" class="w-full p-2" placeholder="Add new TODO to the list"/>
+  <button type="submit" title="Add TODO" [disabled]="formGroup.invalid" [ngClass]="{'bg-orange-600': formGroup.valid , 'bg-gray-600': formGroup.invalid }" class="p-2 "><i class="fa fa-search text-white"></i></button>
+</form>
